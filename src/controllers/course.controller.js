@@ -4,7 +4,7 @@ const {successHandler, errorHandler} = require('../utils/helper.responses')
 const getAllCourse = async (req, res) => {
     
     try {
-        const {category, language, search, sortBy, order, limit = 5, page = 1} = req.query
+        const {category, language, search, sortBy, order, limit = 6, page = 1} = req.query
 
         const allCourse = await courseModel.getAllCourse({category, language, search, sortBy, order, limit: Number(limit), page : Number(page)})
 
