@@ -3,7 +3,7 @@ const userControllers = require('../controllers/user.controller')
 const authMiddleware = require('../middlewares/auth.middleware')
 const roleMiddleware = require('../middlewares/role.middleware')
 
-router.get('/users', authMiddleware.verifyToken, userControllers.getAllUsers) 
+router.get('/users', authMiddleware.verifyToken, roleMiddleware.authorizeRole(['admin']), userControllers.getAllUsers) 
 router.put('/users/:userId', authMiddleware.verifyToken, userControllers.updateUser)
 router.delete('/users/:userId', authMiddleware.verifyToken, roleMiddleware.authorizeRole(['admin']), userControllers.deleteUser)
 router.get('/users/:userId', authMiddleware.verifyToken, userControllers.getUserById)

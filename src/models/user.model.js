@@ -46,7 +46,7 @@ const deleteUser = (userId) =>
 
 const getUserById = (userId) =>
     new Promise((resolve, reject) => {
-        const sql = `SELECT user_id, fullName, email, gender, country, phone, password FROM users WHERE user_id = $1`
+        const sql = `SELECT user_id, fullName, email, gender, country, phone FROM users WHERE user_id = $1`
         pool.query(sql, [userId])
             .then(res => resolve(res.rows[0]))
             .catch(err => reject(err))

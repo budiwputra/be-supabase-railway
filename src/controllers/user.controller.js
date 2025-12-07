@@ -322,8 +322,7 @@ const getMe = async (req, res) => {
             "User tidak ditemukan"
         );
         }
-
-        console.log('data user :', user)
+        
 
         return successHandler(
         res,
